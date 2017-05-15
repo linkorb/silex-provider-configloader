@@ -1,0 +1,22 @@
+{
+    "name": "linkorb/silex-provider-configloader",
+    "description": "Services providing loading of configuration files.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "LinkORB",
+            "email": "engineering@linkorb.com",
+            "role": "Development"
+        }
+    ],
+    "require": {
+        "pimple/pimple": "^3.0",
+        "symfony/yaml": "^2.8 || ^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "LinkORB\\ConfigLoader\\": "lib/"
+        }
+    }
+}
