@@ -14,6 +14,9 @@
         "pimple/pimple": "^3.0",
         "symfony/yaml": "^2.8 || ^3.2"
     },
+    "suggest": {
+        "symfony/dotenv": "To provide the loading of environment variables in a development environment."
+    },
     "require-dev": {
         "phpunit/phpunit": "^4.8"
     },

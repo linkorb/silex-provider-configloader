@@ -38,4 +38,27 @@ class CongiurationLoaderProviderTest extends PHPUnit_Framework_TestCase
             'The service "config.loader.yaml" is an instance of ConfigurationLoaderYaml.'
         );
     }
+
+    public function testRegisterWillRegisterEnvLoaderWhenDependencyIsMet()
+    {
+        if (!class_exists('\Symfony\Component\Dotenv\Dotenv')) {
+            $this->markTestSkipped('Dependency is unmet.');
+        }
+        $this->assertInstanceOf(
+            'LinkORB\ConfigLoader\Service\ConfigurationLoaderEnv',
+            $this->container['config.loader.env'],
+            'The service "config.loader.env" is an instance of ConfigurationLoaderEnv.'
+        );
+    }
+
+    public function testRegisterWillNotRegisterEnvLoaderWhenDependencyIsUnmet()
+    {
+        if (class_exists('\Symfony\Component\Dotenv\Dotenv')) {
+            $this->markTestSkipped('Dependency is met.');
+        }
+        $this->assertFalse(
+            isset($this->container['config.loader.env']),
+            'The service "config.loader.env" is not registered because the dependency is unmet.'
+        );
+    }
 }
